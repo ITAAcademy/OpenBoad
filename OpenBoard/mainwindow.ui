@@ -13,7 +13,13 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralWidget"/>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QTextEdit" name="textEdit"/>
+    </item>
+   </layout>
+  </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
@@ -23,18 +29,339 @@
      <height>21</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menu_File">
+    <property name="title">
+     <string>&amp;File</string>
+    </property>
+    <addaction name="action_New"/>
+    <addaction name="action_Open"/>
+    <addaction name="action_Save"/>
+    <addaction name="action_Save_as"/>
+    <addaction name="separator"/>
+    <addaction name="action_Exit"/>
+   </widget>
+   <widget class="QMenu" name="menu_Edit">
+    <property name="title">
+     <string>&amp;Edit</string>
+    </property>
+    <addaction name="action_Undo"/>
+    <addaction name="action_Redo"/>
+    <addaction name="separator"/>
+    <addaction name="action_Cut"/>
+    <addaction name="action_Copy"/>
+    <addaction name="action_Paste"/>
+    <addaction name="separator"/>
+    <addaction name="action_Find"/>
+   </widget>
+   <widget class="QMenu" name="menu_Settings">
+    <property name="title">
+     <string>&amp;Settings</string>
+    </property>
+    <addaction name="action_Font"/>
+    <addaction name="action_Color"/>
+    <addaction name="separator"/>
+    <addaction name="action_Reset_default"/>
+   </widget>
+   <widget class="QMenu" name="menu_Board">
+    <property name="title">
+     <string>&amp;Board</string>
+    </property>
+    <addaction name="action_Show"/>
+    <addaction name="action_Hide"/>
+    <addaction name="separator"/>
+    <addaction name="action_Play"/>
+    <addaction name="action_Pause"/>
+    <addaction name="action_Stop"/>
+   </widget>
+   <widget class="QMenu" name="menu_Help">
+    <property name="title">
+     <string>&amp;Help</string>
+    </property>
+    <addaction name="action_About"/>
+   </widget>
+   <addaction name="menu_File"/>
+   <addaction name="menu_Edit"/>
+   <addaction name="menu_Settings"/>
+   <addaction name="menu_Board"/>
+   <addaction name="menu_Help"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
-    <enum>TopToolBarArea</enum>
+    <enum>BottomToolBarArea</enum>
    </attribute>
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
+   <addaction name="action_clearTB"/>
+   <addaction name="action_colorTB"/>
+   <addaction name="action_backTB"/>
+   <addaction name="action_crossTB"/>
+   <addaction name="action_animatedTB"/>
+   <addaction name="action_delayTB"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <action name="action_New">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/new-file-icon.png</normaloff>:/icons/new-file-icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;New</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
+  </action>
+  <action name="action_Open">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/open-file-icon.png</normaloff>:/icons/open-file-icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Open</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="action_Save">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/Save-icon.png</normaloff>:/icons/Save-icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Save</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="action_Save_as">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/Save-as-icon.png</normaloff>:/icons/Save-as-icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save &amp;as...</string>
+   </property>
+  </action>
+  <action name="action_Exit">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/Close-2-icon.png</normaloff>:/icons/Close-2-icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Exit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="action_Undo">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/undo-icon.png</normaloff>:/icons/undo-icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Undo</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Z</string>
+   </property>
+  </action>
+  <action name="action_Redo">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/redo-icon.png</normaloff>:/icons/redo-icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Redo</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+Z</string>
+   </property>
+  </action>
+  <action name="action_Cut">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/cut-icon.png</normaloff>:/icons/cut-icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Cut</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Z</string>
+   </property>
+  </action>
+  <action name="action_Copy">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/Copy-icon.png</normaloff>:/icons/Copy-icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Copy</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+C</string>
+   </property>
+  </action>
+  <action name="action_Paste">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/Paste-icon.png</normaloff>:/icons/Paste-icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Paste</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+V</string>
+   </property>
+  </action>
+  <action name="action_Find">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/search-icon.png</normaloff>:/icons/search-icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Find</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F</string>
+   </property>
+  </action>
+  <action name="action_Font">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/font-x-generic-icon.png</normaloff>:/icons/font-x-generic-icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Font</string>
+   </property>
+  </action>
+  <action name="action_Color">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/colors-icon.png</normaloff>:/icons/colors-icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Color</string>
+   </property>
+  </action>
+  <action name="action_Reset_default">
+   <property name="text">
+    <string>&amp;Reset default</string>
+   </property>
+  </action>
+  <action name="action_Show">
+   <property name="text">
+    <string>Sho&amp;w</string>
+   </property>
+  </action>
+  <action name="action_Hide">
+   <property name="text">
+    <string>&amp;Hide</string>
+   </property>
+  </action>
+  <action name="action_Play">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/play-8-icon.png</normaloff>:/icons/play-8-icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Play</string>
+   </property>
+  </action>
+  <action name="action_Pause">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/pause-icon.png</normaloff>:/icons/pause-icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>P&amp;ause</string>
+   </property>
+  </action>
+  <action name="action_Stop">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/stop-icon.png</normaloff>:/icons/stop-icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>S&amp;top</string>
+   </property>
+  </action>
+  <action name="action_About">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/Feather-icon.png</normaloff>:/icons/Feather-icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>&amp;About</string>
+   </property>
+  </action>
+  <action name="action_delayTB">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/pause-icon.png</normaloff>:/icons/pause-icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>\p</string>
+   </property>
+   <property name="toolTip">
+    <string>Pause</string>
+   </property>
+  </action>
+  <action name="action_clearTB">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/Actions-edit-clear-icon.png</normaloff>:/icons/Actions-edit-clear-icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>\a</string>
+   </property>
+   <property name="toolTip">
+    <string>a</string>
+   </property>
+  </action>
+  <action name="action_colorTB">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/ToolBar-color.png</normaloff>:/icons/ToolBar-color.png</iconset>
+   </property>
+   <property name="text">
+    <string>\c</string>
+   </property>
+  </action>
+  <action name="action_backTB">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/next-2-icon.png</normaloff>:/icons/next-2-icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>\n</string>
+   </property>
+  </action>
+  <action name="action_crossTB">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/Actions-format-text-strikethrough-icon.png</normaloff>:/icons/Actions-format-text-strikethrough-icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>\-</string>
+   </property>
+  </action>
+  <action name="action_animatedTB">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/remove-icon.png</normaloff>:/icons/remove-icon.png</iconset>
+   </property>
+   <property name="text">
+    <string>\&lt;</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="icons.qrc"/>
+ </resources>
  <connections/>
 </ui>
