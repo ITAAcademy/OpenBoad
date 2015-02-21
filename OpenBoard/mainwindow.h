@@ -44,8 +44,6 @@ private slots:
     void on_action_Copy_triggered();
     void on_action_Paste_triggered();
     void on_action_Select_all_triggered();
-    void on_action_Find_triggered();
-        void search();
 
 //    file
     void on_action_Exit_triggered();

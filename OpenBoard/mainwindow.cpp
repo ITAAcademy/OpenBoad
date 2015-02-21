@@ -31,8 +31,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->mainToolBar->addWidget(sliderTB);
     ui->mainToolBar->addWidget(spinBoxTB);
 
+<<<<<<< HEAD
     ui->widget_Find->setVisible(false);
     connect(ui->button_Find, SIGNAL(pressed()), this, SLOT(search()));
+=======
+>>>>>>> parent of 2b94a50... added "Find" action
 
     if(mSettings.FirstRun())
     {
@@ -130,6 +133,7 @@ void MainWindow::on_action_Select_all_triggered()
     }
 }
 
+<<<<<<< HEAD
 void MainWindow::on_action_Find_triggered()
 {
     ui->widget_Find->setVisible(!ui->widget_Find->isVisible());
@@ -148,6 +152,14 @@ void MainWindow::on_action_Exit_triggered()
     {
         this->close();
     }
+=======
+void MainWindow::on_action_Exit_triggered()
+{
+
+
+    maybeSave();
+    this->close();
+>>>>>>> parent of 2b94a50... added "Find" action
 }
 
 bool MainWindow::saveFile()
@@ -188,70 +200,6 @@ bool MainWindow::maybeSave()
 
     }
     return true;
-}
-
-void MainWindow::search()
-{
-    QString str = ui->lineEdit_Find->text();
-
-    QList<QTextEdit::ExtraSelection> extraSelections;
-
-    ui->textEdit->moveCursor(QTextCursor::Start);
-    QColor color = QColor(Qt::yellow).lighter(130);
-
-    if(ui->check_case_sensitive->isChecked() == false
-            && ui->check_whole_words->isChecked() == false)
-    {
-        while(ui->textEdit->find(str))
-        {
-            QTextEdit::ExtraSelection extra;
-            extra.format.setBackground(color);
-
-            extra.cursor = ui->textEdit->textCursor();
-            extraSelections.append(extra);
-        }
-    }
-
-    else if(ui->check_case_sensitive->isChecked() == true
-            && ui->check_whole_words->isChecked() == false)
-    {
-        while(ui->textEdit->find(str, QTextDocument::FindCaseSensitively))
-        {
-            QTextEdit::ExtraSelection extra;
-            extra.format.setBackground(color);
-
-            extra.cursor = ui->textEdit->textCursor();
-            extraSelections.append(extra);
-        }
-    }
-
-    else if(ui->check_case_sensitive->isChecked() == false
-            && ui->check_whole_words->isChecked() == true)
-    {
-        while(ui->textEdit->find(str, QTextDocument::FindWholeWords))
-        {
-            QTextEdit::ExtraSelection extra;
-            extra.format.setBackground(color);
-
-            extra.cursor = ui->textEdit->textCursor();
-            extraSelections.append(extra);
-        }
-    }
-
-    else if (ui->check_case_sensitive->isChecked() == true
-            && ui->check_whole_words->isChecked() == true)
-    {
-        while(ui->textEdit->find(str, QTextDocument::FindWholeWords | QTextDocument::FindCaseSensitively))
-        {
-            QTextEdit::ExtraSelection extra;
-            extra.format.setBackground(color);
-
-            extra.cursor = ui->textEdit->textCursor();
-            extraSelections.append(extra);
-        }
-    }
-
-    ui->textEdit->setExtraSelections(extraSelections);
 }
 
 bool MainWindow::on_action_Save_as_triggered()

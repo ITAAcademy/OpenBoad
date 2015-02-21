@@ -18,6 +18,7 @@
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
+<<<<<<< HEAD
     <item row="1" column="0">
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
@@ -73,6 +74,10 @@
        </widget>
       </item>
      </layout>
+=======
+    <item row="0" column="0">
+     <widget class="QTextEdit" name="textEdit"/>
+>>>>>>> parent of 2b94a50... added "Find" action
     </item>
    </layout>
   </widget>
@@ -147,7 +152,7 @@
     <enum>BottomToolBarArea</enum>
    </attribute>
    <attribute name="toolBarBreak">
-    <bool>true</bool>
+    <bool>false</bool>
    </attribute>
    <addaction name="action_clearTB"/>
    <addaction name="action_colorTB"/>
@@ -297,18 +302,12 @@
    </property>
   </action>
   <action name="action_Color">
-   <property name="enabled">
-    <bool>true</bool>
-   </property>
    <property name="icon">
     <iconset resource="icons.qrc">
      <normaloff>:/icons/colors-icon.png</normaloff>:/icons/colors-icon.png</iconset>
    </property>
    <property name="text">
     <string>&amp;Color</string>
-   </property>
-   <property name="visible">
-    <bool>true</bool>
    </property>
   </action>
   <action name="action_Reset_default">
@@ -393,9 +392,6 @@
    </property>
   </action>
   <action name="action_colorTB">
-   <property name="enabled">
-    <bool>true</bool>
-   </property>
    <property name="icon">
     <iconset resource="icons.qrc">
      <normaloff>:/icons/ToolBar-color.png</normaloff>:/icons/ToolBar-color.png</iconset>
