@@ -1,0 +1,65 @@
+        onPaint: {
+
+            function wrapText(context, text, marginLeft, marginTop, maxWidth, lineHeight)
+                {
+                    var words = text.split(" ");
+                    var countWords = words.length;
+                    var line = "";
+                    mainDrawElm.index += 3;
+                    var war = mainDrawElm.index - (mainDrawElm.row - 1)*maxWidth;
+
+
+                    for (var n = 0; n < countWords; n++) {
+                        var testLine = line + words[n] + " " ;
+                        var testWidth = context.measureText(testLine).width;
+                        var oneCharW = context.measureText('Q').width;
+                        var oneCharH = context.measureText('Q').wight;
+                        war = mainDrawElm.index - (mainDrawElm.row - 1)*maxWidth;
+                        if(war < 1)
+                            war = 1;
+                        console.debug("war = " + war + "\n row = " + mainDrawElm.row);
+                        var grd = context.createLinearGradient(0, 0, war, 0);
+                        grd.addColorStop(0, "white");
+                        grd.addColorStop(0.85, "white");
+                        grd.addColorStop(1, "rgba(255, 255, 255, 0)");
+                        context.fillStyle = grd;
+                   //     context.fillText(line, marginLeft, marginTop);
+                       // console.debug(oneChar);
+                        if (testWidth > maxWidth) {
+
+                            var kus;
+  /*                          var Width = context.measureText(String(line)).width;
+                            if(Width > maxWidth)
+                            {
+                                kus = line.substring((Width - maxWidth)/oneCharW, line.length);
+                                line[line.length - (Width - maxWidth)/oneCharW ] = '-';
+                                line[line.length - (Width - maxWidth)/oneCharW + 1] = '\0';
+
+                            }
+*/
+                            context.fillText(line, marginLeft, marginTop);
+                            line = words[n] + " ";
+                            marginTop += lineHeight + oneCharH;
+                          //  console.debug(mainDrawElm.row);
+                            mainDrawElm.row = mainDrawElm.row + 1;
+
+                        }
+                        else {
+                            line = testLine;
+                        }
+                    }
+
+                }
+                mainDrawElm.row = 1;
+               // mainDrawElm.index = 0;
+                var context = mainDrawElm.getContext("2d");
+                var lineHeight = 25;
+                var marginLeft = 20;
+                var marginTop = 40;
+                var maxWidth = mainDrawElm.width - marginLeft; //размер поле, где выводится текст
+                context.reset();
+               // console.debug(cFontLoader.status);
+                context.font = "48pt \"DS VTCorona Cyr\"";
+                wrapText(context, forma.drawText, marginLeft, marginTop, maxWidth, lineHeight);
+
+        }

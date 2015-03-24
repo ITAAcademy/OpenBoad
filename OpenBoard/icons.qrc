@@ -1,0 +1,32 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/Close-2-icon.png</file>
+        <file>icons/Copy-icon.png</file>
+        <file>icons/cut-icon.png</file>
+        <file>icons/new-file-icon.png</file>
+        <file>icons/open-file-icon.png</file>
+        <file>icons/Paste-icon.png</file>
+        <file>icons/redo-icon.png</file>
+        <file>icons/Save-as-icon.png</file>
+        <file>icons/Save-icon.png</file>
+        <file>icons/undo-icon.png</file>
+        <file>icons/colors-icon.png</file>
+        <file>icons/font-x-generic-icon.png</file>
+        <file>icons/search-icon.png</file>
+        <file>icons/ToolBar-color.png</file>
+        <file>icons/Actions-edit-clear-icon.png</file>
+        <file>icons/Actions-format-text-strikethrough-icon.png</file>
+        <file>icons/next-2-icon.png</file>
+        <file>icons/pause-icon.png</file>
+        <file>icons/play-8-icon.png</file>
+        <file>icons/remove-icon.png</file>
+        <file>icons/stop-icon.png</file>
+        <file>icons/Feather-icon.png</file>
+        <file>draw.qml</file>
+        <file>font/Comic_Sans_MS.ttf</file>
+        <file>font/DS_VTCorona_Cyr.ttf</file>
+        <file>font/Segoe_Script_Bold.ttf</file>
+        <file>icons/colors-iconB.png</file>
+        <file>icons/b-font-x-generic-icon.png</file>
+    </qresource>
+</RCC>

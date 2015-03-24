@@ -5,6 +5,7 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     MainWindow w;
+  //  QtAV::Widgets::registerRenderers();
     w.show();
 
     return a.exec();
